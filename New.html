@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video Layout</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #181818;
+      color: #fff;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: 3fr 1fr;
+      grid-template-rows: auto auto auto;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    /* Section 1: Video Player */
+    .video-player {
+      grid-column: 1;
+      grid-row: 1;
+    }
+    .video-player video {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    /* Section 2: JPG Image */
+    .side-image {
+      grid-column: 2;
+      grid-row: 1;
+    }
+    .side-image img {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    /* Section 3: Profile + Buttons */
+    .profile {
+      grid-column: 1 / span 2;
+      grid-row: 2;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      background-color: #202020;
+      padding: 10px;
+      border-radius: 8px;
+    }
+    .profile img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+    }
+    .profile .name {
+      flex: 1;
+      font-size: 16px;
+      font-weight: bold;
+    }
+    .profile .actions button {
+      background-color: #ff0000;
+      border: none;
+      padding: 8px 12px;
+      margin-left: 10px;
+      border-radius: 4px;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    /* Section 4: Comments */
+    .comments {
+      grid-column: 1 / span 2;
+      grid-row: 3;
+      background-color: #202020;
+      padding: 15px;
+      border-radius: 8px;
+    }
+    .comment {
+      margin-bottom: 10px;
+      padding: 10px;
+      background-color: #282828;
+      border-radius: 6px;
+    }
+    .comment h4 {
+      margin: 0;
+      font-size: 14px;
+      color: #ffcc00;
+    }
+    .comment p {
+      margin: 5px 0 0;
+      font-size: 13px;
+      color: #ddd;
+    }
+
+    /* Responsive: Hide Section 2 on mobile */
+    @media (max-width: 768px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+      .side-image {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Section 1: Video Player -->
+    <div class="video-player">
+      <video controls poster="Lion.jpg">
+        <source src="sample-video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
+    <!-- Section 2: JPG Image -->
+    <div class="side-image">
+      <img src="Lion 2.jpg" alt="Side Image">
+    </div>
+
+    <!-- Section 3: Profile + Buttons -->
+    <div class="profile">
+      <img src="Lion.jpg" alt="Profile Picture">
+      <div class="name">Senara Dias</div>
+      <div class="actions">
+        <button>👍 Like</button>
+        <button>🔗 Share</button>
+      </div>
+    </div>
+
+    <!-- Section 4: Comments -->
+    <div class="comments">
+      <div class="comment">
+        <h4>User1</h4>
+        <p>This is an amazing video!</p>
+      </div>
+      <div class="comment">
+        <h4>User2</h4>
+        <p>Great design inspiration!</p>
+      </div>
+      <!-- Add unlimited more comments -->
+    </div>
+  </div>
+</body>
+</html>
